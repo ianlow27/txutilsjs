@@ -1,4 +1,64 @@
 //----------------------------------
+//----------------------------------
+function cym_conv2Accentxx(pstr){
+return "h33333g0865ffgh";
+}
+function cym_conv2Accent(pstr){
+//pstr=String(pstr);
+       
+//alert("1"+pstr);
+if(pstr.match(/\^/)){
+  pstr = pstr.replace(/a\^/g, 'â');
+  pstr = pstr.replace(/e\^/g, 'ê');
+  pstr = pstr.replace(/i\^/g, 'î');
+  pstr = pstr.replace(/o\^/g, 'ô');
+  pstr = pstr.replace(/u\^/g, 'û');
+  pstr = pstr.replace(/w\^/g, 'ŵ');
+  pstr = pstr.replace(/y\^/g, 'ŷ');
+}
+if(pstr.match(/%/)){
+  pstr = pstr.replace(/a%/g, 'ä');
+  pstr = pstr.replace(/e%/g, 'ë');
+  pstr = pstr.replace(/i%/g, 'ï');
+  pstr = pstr.replace(/o%/g, 'ö');
+  pstr = pstr.replace(/u%/g, 'ü');
+  pstr = pstr.replace(/y%/g, 'ÿ');
+}
+if(pstr.match(/´/)){
+  pstr = pstr.replace(/a´/g, 'á');
+  pstr = pstr.replace(/e´/g, 'é');
+  pstr = pstr.replace(/i´/g, 'í');
+  pstr = pstr.replace(/o´/g, 'ó');
+  pstr = pstr.replace(/u´/g, 'ú');
+  pstr = pstr.replace(/y´/g, 'ý');
+}
+if(pstr.match(/`/)){
+  pstr = pstr.replace(/a`/g, 'à');
+  pstr = pstr.replace(/e`/g, 'è');
+  pstr = pstr.replace(/i`/g, 'ì');
+  pstr = pstr.replace(/o`/g, 'ò');
+  pstr = pstr.replace(/u`/g, 'ù');
+  pstr = pstr.replace(/y`/g, 'ỳ');
+}
+//alert(pstr);
+
+//let str=pstr;
+return pstr;
+}//endfunc
+//-----------------------------------
+function rmleadspc(pstr){
+
+  let retval = String(pstr)
+    .replace(/\s([\,\.\:\;\!\?]{1,1})/g,"$1")
+    .replace(/\s'\ss\s/g, "'s ")
+    .replace(/\s'\sS\s/g, "'S ")
+    ;
+//alert(retval);
+return retval;
+
+//return pstr;
+}//endfunc
+//----------------------------------
 function promptok(pref){ 
   let repl = prompt(pref + '\nPlease enter y or n to continue:\n' + pref).toLowerCase().trim();
   if(repl == 'y') return 1;
