@@ -1,4 +1,22 @@
-//----------------------------------
+//---------------------------------- 
+function isMobile(){
+   const toMatch = [
+       /Android/i,
+       /webOS/i,
+       /iPhone/i,
+       /iPad/i,
+       /iPod/i,
+       /Phone/i
+   ];
+   return toMatch.some((toMatchItem) => {
+      return navigator.userAgent.match(toMatchItem);
+   });
+   /* ES5
+     return toMatch.some(function(toMatchItem){
+       return navigator.userAgent.match(toMatchItem);
+     });
+   */ 
+}//endfunc
 //----------------------------------
 function cym_conv2Accentxx(pstr){
 return "h33333g0865ffgh";
@@ -126,4 +144,5 @@ function sortuniqstrarr(arr) {
   }
   return ret;
 }
+//----------------------------------
 //----------------------------------
