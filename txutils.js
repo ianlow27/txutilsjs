@@ -1,5 +1,42 @@
-//---------------------------------- 
-function isMobile(){
+//----------------------------------
+// Filename: txutils.js
+//  Version: 0.0.5_241212-1406
+//----------------------------------
+function resize2device(){
+  if(!isMobile()){ 
+    const atags=String('dialog span pre select textarea button b h1 h2 h3 h4 h5').split(/ /);
+    for(h in atags){
+      let i=0;
+      while(true){
+        if(typeof 
+          document.getElementsByTagName(atags[h])[i]!= 'undefined'){
+          document.getElementsByTagName(atags[h])[i]
+            .style.fontSize='120%';
+          i++;
+          if(i>50) break;
+        }else break;
+      }//endwhile
+    }//endfor
+  }//endif
+}
+//----------------------------------
+function promptyn(pmsg){
+  let rsp= prompt(pmsg+'\nPlease enter y or n (yes/no):');
+  if((rsp=='y')||(rsp=='Y')) return 'y';
+  return 'n';
+}
+//----------------------------------
+function copy2clipboard(pobj){
+ try{
+  pobj.focus();
+  pobj.select();
+  setTimeout('document.execCommand("copy");', 1000);
+  }catch(e){
+  	alert(e.message);
+  }
+}
+//----------------------------------
+function isMobile(pval){
    const toMatch = [
        /Android/i,
        /webOS/i,
@@ -11,6 +48,7 @@ function isMobile(){
    return toMatch.some((toMatchItem) => {
       return navigator.userAgent.match(toMatchItem);
    });
+
    /* ES5
      return toMatch.some(function(toMatchItem){
        return navigator.userAgent.match(toMatchItem);
